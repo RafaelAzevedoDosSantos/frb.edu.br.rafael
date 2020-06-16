@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+        <meta name="description" content=""></meta>
+        <meta name="author" content=""></meta>
+
+        <title>Rafael Azevedo System</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap.min.css" rel="stylesheet"></link>
+
+        <!-- Custom styles for this template -->
+        <link href="dashboard.css" rel="stylesheet"> </link>
+    </h:head>
+
+    <h:body>
+        <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-sm-12 col-md-12 mr-0" href="#">Rafael Azevedo System</a>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <main role="main" class="col-md-2 ml-sm-auto col-lg-2 px-2"> </main>
+                <main role="main" class="col-md-8 ml-sm-auto col-lg-8 px-4">
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Lista de Filmes</h1>
+                    </div>
+
+                    <div class="table-responsive">
+                        <h:form>
+
+                            <h:commandButton class="btn btn-primary float-left" value="Voltar" style="width: 100%" action="voltaParaIndex" />
+
+                            <table class="table table-striped table-sm">
+
+                                <h:dataTable style="width: 100%"
+                                             var="umFilme"
+                                             value="#{filmeController.filmes}"
+                                             border="1"
+                                             class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>               
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputLabel value="Código"/>
+                                                    </f:facet>
+
+                                                    <h:outputLabel value="#{umFilme.filme_id}"/>                    
+                                                </h:column>
+                                            </td>
+                                            <td>
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputLabel value="Filme"/>
+                                                    </f:facet>
+
+                                                    <h:outputLabel value="#{umFilme.titulo}"/>                  
+                                                </h:column>
+                                            </td>
+
+                                            <td>
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputLabel value="Descrição"/>
+                                                    </f:facet>
+
+                                                    <h:outputLabel value="#{umFilme.descricao}"/>                   
+                                                </h:column>
+                                            </td>
+
+                                            <td>
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputLabel value="Nome"/>
+                                                    </f:facet>
+
+                                                    <h:outputLabel value="#{umFilme.ano_de_lancamento}">
+                                                    </h:outputLabel>
+                                                    
+                                                </h:column>
+                                            </td>
+
+                                            <td>
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputLabel value="Preço"/>
+                                                    </f:facet>
+
+                                                    <h:outputLabel value="#{umFilme.preco_da_locacao}">
+                                                        <f:convertNumber pattern="#,###,##0.00"/>
+                                                    </h:outputLabel>                 
+                                                </h:column>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </h:dataTable>
+
+                            </table>
+                        </h:form>
+                    </div>
+                </main>
+                <main role="main" class="col-md-2 ml-sm-auto col-lg-2 px-2"> </main>
+            </div>
+        </div>
+        <script src="bootstrap.min.js"></script>
+    </h:body>
+</html>
+
+
+
+
+

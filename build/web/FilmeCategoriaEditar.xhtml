@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+        <meta name="description" content=""></meta>
+        <meta name="author" content=""></meta>
+
+        <title>Rafael Azevedo System</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap.min.css" rel="stylesheet"></link>
+
+        <!-- Custom styles for this template -->
+        <link href="dashboard.css" rel="stylesheet"> </link>
+    </h:head>
+
+    <h:body>
+        <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-sm-12 col-md-12 mr-0" href="#">Rafael Azevedo System</a>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <main role="main" class="col-md-2 ml-sm-auto col-lg-2 px-2"> </main>
+                <main role="main" class="col-md-8 ml-sm-auto col-lg-8 px-4">
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Editar Filme Categoria</h1>
+                    </div>
+
+                    <div class="table-responsive">
+                        <h:form>
+                            <div class="form-group">
+                                <h:outputLabel value="Filme: "/> 
+                                <h:selectOneMenu class="form-control"  id="cboFilme"
+                                                 value="#{filmecategoriaController.filmeCategoria.filme.filme_id}"
+                                                 >
+
+                                    <f:selectItem itemLabel="Selecione um filme..."
+                                                  itemValue="-1"/>
+
+                                    <f:selectItems value="#{filmeController.filmes}"
+                                                   var="filme"
+                                                   itemLabel="#{filme.titulo}"
+                                                   itemValue="#{filme.filme_id}"/>
+
+                                </h:selectOneMenu>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel value="Categorias: "/> 
+                                <h:selectOneMenu class="form-control"  id="cboCategoria"
+                                                 value="#{filmecategoriaController.filmeCategoria.categoria.categoria_id}"
+                                                 >
+
+                                    <f:selectItem itemLabel="Selecione um categoria..."
+                                                  itemValue="-1"/>
+
+                                    <f:selectItems value="#{categoriaController.categorias}"
+                                                   var="categoria"
+                                                   itemLabel="#{categoria.nome}"
+                                                   itemValue="#{categoria.categoria_id}"/>
+
+                                </h:selectOneMenu> 
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel value="Última Atualização"/> 
+                                <h:inputText class="form-control" value="#{filmecategoriaController.filmeCategoria.ultima_atualizacao}" maxlength="255" size="80" disabled="true">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                </h:inputText> 
+                            </div>
+
+
+                            <h:commandButton class="btn btn-primary float-left" value="Voltar" style="width: 48%" action="voltaParaListagem" />
+                            <h:commandButton class="btn btn-primary float-right" value="Editar" style="width: 48%" action="#{filmecategoriaController.finalizaEdicao()}" />
+                        </h:form>
+                    </div>
+                </main>
+                <main role="main" class="col-md-2 ml-sm-auto col-lg-2 px-2"> </main>
+            </div>
+        </div>
+        <script src="bootstrap.min.js"></script>
+    </h:body>
+</html>
+
+
+
+
